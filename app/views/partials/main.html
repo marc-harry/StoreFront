@@ -1,0 +1,56 @@
+<div ng-include="'partials/navbar'"></div>
+
+<div class="container">
+  <h3 class="text-info">
+    Welcome to the StoreFront
+  </h3>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Product Search:</label>
+    <input class="form-control" placeholder="Search..." ng-model="search">
+  </div>
+
+  <table class="table table-bordered">
+
+  <tr class="well">
+    <td class="tdRight" colspan="4" >
+      <a href="/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+        <i class="glyphicon glyphicon-shopping-cart" />
+        <b>{{cart.getTotalCount()}}</b> items,
+        <b>{{cart.getTotalPrice() | currency:"£"}}</b>
+      </a>
+    </td>
+  </tr>
+
+  <tr ng-repeat="product in store.products | orderBy:'name' | filter:search:name" >
+    <td class="tdCenter">
+      <img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" />
+    </td>
+    <td>
+      <a href="/products/{{product.id}}"><b>{{product.name}}</b></a>
+      <br />{{product.description}}
+    </td>
+    <td class="tdRight">
+      {{product.price | currency:"£"}}
+    </td>
+    <td class="tdRight">
+        <a href="" class="btn btn-sm btn-primary" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+           add to cart
+        </a>
+    </td>
+  </tr>
+
+  <tr class="well">
+    <td class="tdRight" colspan="4">
+      <a href="/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+         <i class="glyphicon glyphicon-shopping-cart" />
+         <b>{{cart.getTotalCount()}}</b> items,
+         <b>{{cart.getTotalPrice() | currency:"£"}}</b>
+      </a>
+    </td>
+  </tr>
+  </table>
+</div>
+
+<!-- <div class="container footer">
+  <p>♥ from the Yeoman team</p>
+</div> -->
