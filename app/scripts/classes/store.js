@@ -1,10 +1,10 @@
 // store contains the products
 function store() {
   this.products = [
-    new product("APL", "Apple", "Eat one every…", 12, 90, 0, 2, 0, 1, 2),
-    new product("AVC", "Avocado", "Guacamole…", 16, 90, 0, 1, 1, 1, 2),
-    new product("BAN", "Banana", "These are…", 4, 120, 0, 2, 1, 2, 2),
-    new product("WML", "Watermelon", "Nothing…", 4, 90, 4, 4, 0, 1, 1)
+    new product("APL", "Cliffs", "Eat one every…", 100, 0, 0, 0, 0, 0, 0),
+    new product("AVC", "Beach Hills", "Guacamole…", 80, 0, 0, 0, 0, 0, 0),
+    new product("BAN", "Sea Valleys", "These are…", 90, 0, 0, 0, 0, 0, 0),
+    new product("WML", "Mountains", "Nothing…", 75, 0, 0, 0, 0, 0, 0)
   ];
   this.dvaCaption = ["Negligible", "Low", "Average", "Good", "Great" ];
   this.dvaRange = ["below 5%", "between 5 and 10%", "above 40%"];

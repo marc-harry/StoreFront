@@ -271,7 +271,7 @@ shoppingCart.prototype.checkoutStripe = function (parms, clearCart, user) {
             data: token,
             success: function (data) {
                 alert('Payment Received!');
-                this.clearItems();
+                this.clearCart = clearCart == null || clearCart;
                 console.log(data);
             },
             error: function (error) {

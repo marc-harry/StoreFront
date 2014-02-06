@@ -21,21 +21,38 @@
     </td>
   </tr>
 
-  <tr ng-repeat="product in store.products | orderBy:'name' | filter:search:name" >
-    <td class="tdCenter">
-      <img ng-src="img/products/{{product.id}}.jpg" alt="{{product.name}}" />
-    </td>
-    <td>
-      <a href="/products/{{product.id}}"><b>{{product.name}}</b></a>
-      <br />{{product.description}}
-    </td>
-    <td class="tdRight">
-      {{product.price | currency:"£"}}
-    </td>
-    <td class="tdRight">
-        <a href="" class="btn btn-sm btn-primary" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
-           add to cart
-        </a>
+  <tr>
+    <td colspan="4">
+      <div style="margin-top:10px;">    
+        <div class="form-group" ng-repeat="product in store.products | orderBy:'name' | filter:search:name">
+            <div class="col-xs-12 col-md-6" style="height: 503px;">
+                <div class="panel panel-default">
+                    <div class="panel-image">
+                        <a ng-href="/products/{{ product.id }}"><img ng-src="/images/products/{{ product.id }}.jpg" width="409" height="265" class="panel-image-preview" /></a>
+                    </div>
+                    <div class="panel-body" >
+                        <a ng-href="/products/{{ product.id }}"><h4>{{ product.name }}</h4></a>
+                        <p style="overflow: auto; height: 64px; overflow-x: hidden;">
+                          {{ product.description }}
+                        </p>
+                        <span><b>Price: </b>{{ product.price | currency:"£" }}</span>
+                        <a href="" class="btn btn-sm btn-primary pull-right"  ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+                           add to cart
+                        </a>
+                        <a href="/products/{{ product.id }}" class="btn btn-sm btn-info pull-right" style="margin-right: 5px;" >
+                           more info
+                        </a>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a ng-href="/images/products/{{product.id}}.jpg" target="_self" download="{{product.name}}"><span class="glyphicon glyphicon-download"></span></a>
+                        <a href="#facebook"><span class="fa fa-facebook-square"></span></a>
+                        <a href="#twitter"><span class="fa fa-twitter-square"></span></a>
+                        <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </td>
   </tr>
 

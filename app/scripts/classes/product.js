@@ -1,7 +1,7 @@
 // product class
 function product(id, name, description, price,
                  cal, carot, vitc, folate, potassium, fiber) {
-  this.id = id; // product code (SKU = stock keeping unit)
+  this.id = id; 
   this.name = name;
   this.description = description;
   this.price = price;

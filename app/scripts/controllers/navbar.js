@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('shopfrontApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, DataService) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'Shop',
       'link': '/'
     }];
+
+    $scope.cart = DataService.cart;
     
     $scope.logout = function() {
       Auth.logout()
