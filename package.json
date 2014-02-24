@@ -1,6 +1,6 @@
 {
   "name": "shopfront",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "express": "~3.4.3",
     "lodash": "~2.4.1",
@@ -9,7 +9,8 @@
     "connect-mongo": "~0.4.0",
     "passport": "latest",
     "passport-local": "latest",
-    "ejs": "~0.8.4"
+    "ejs": "~0.8.4",
+	"stripe": "~2.4.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
