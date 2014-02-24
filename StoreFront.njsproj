@@ -1,142 +1,143 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{05515abd-c7e9-43b5-85fb-ac3087df74e9}</ProjectGuid>
-        <ProjectHome />
-        <ProjectView>ShowAllFiles</ProjectView>
-        <StartupFile>server.js</StartupFile>
-        <WorkingDirectory>.</WorkingDirectory>
-        <OutputPath>.</OutputPath>
-        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
-    <ItemGroup>
-        <Content Include="bower.json" />
-        <Content Include="package.json" />
-        <Content Include="README.md" />
-        <Compile Include="Gruntfile.js" />
-        <Compile Include="karma-e2e.conf.js" />
-        <Compile Include="karma.conf.js" />
-        <Compile Include="server.js" />
-        <Content Include=".git\ms-persist.xml" />
-        <Content Include="app\robots.txt" />
-        <Content Include="app\favicon.ico" />
-        <Compile Include="lib\middleware.js" />
-        <Compile Include="lib\routes.js" />
-        <Content Include="test\runner.html" />
-        <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
-        <Content Include="app\images\profile-placeholder.png" />
-        <Content Include="app\images\yeoman.png" />
-        <Compile Include="app\scripts\app.js" />
-        <Content Include="app\styles\bootstrap.min.css" />
-        <Content Include="app\styles\main.css" />
-        <Content Include="app\views\404.html" />
-        <Content Include="app\views\index.html" />
-        <Content Include="app\images\products\APL.jpg" />
-        <Content Include="app\images\products\AVC.jpg" />
-        <Content Include="app\images\products\BAN.jpg" />
-        <Content Include="app\images\products\WML.jpg" />
-        <Compile Include="app\scripts\classes\product.js" />
-        <Compile Include="app\scripts\classes\shoppingCart.js" />
-        <Compile Include="app\scripts\classes\store.js" />
-        <Compile Include="app\scripts\controllers\login.js" />
-        <Compile Include="app\scripts\controllers\main.js" />
-        <Compile Include="app\scripts\controllers\navbar.js" />
-        <Compile Include="app\scripts\controllers\settings.js" />
-        <Compile Include="app\scripts\controllers\signup.js" />
-        <Compile Include="app\scripts\directives\mongooseError.js" />
-        <Compile Include="app\scripts\services\auth.js" />
-        <Compile Include="app\scripts\services\dataService.js" />
-        <Compile Include="app\scripts\services\session.js" />
-        <Compile Include="app\scripts\services\user.js" />
-        <Content Include="app\views\partials\login.html" />
-        <Content Include="app\views\partials\main.html" />
-        <Content Include="app\views\partials\navbar.html" />
-        <Content Include="app\views\partials\product.html" />
-        <Content Include="app\views\partials\settings.html" />
-        <Content Include="app\views\partials\shoppingCart.html" />
-        <Content Include="app\views\partials\signup.html" />
-        <Compile Include="lib\config\config.js" />
-        <Compile Include="lib\config\dummydata.js" />
-        <Compile Include="lib\config\express.js" />
-        <Compile Include="lib\config\passport.js" />
-        <Compile Include="lib\controllers\api.js" />
-        <Compile Include="lib\controllers\index.js" />
-        <Compile Include="lib\controllers\session.js" />
-        <Compile Include="lib\controllers\users.js" />
-        <Compile Include="lib\models\thing.js" />
-        <Compile Include="lib\models\user.js" />
-        <Compile Include="lib\config\env\all.js" />
-        <Compile Include="lib\config\env\development.js" />
-        <Compile Include="lib\config\env\production.js" />
-        <Compile Include="lib\config\env\test.js" />
-        <Compile Include="test\spec\controllers\main.js" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include=".git" />
-        <Folder Include="app" />
-        <Folder Include="app\fonts" />
-        <Folder Include="app\images" />
-        <Folder Include="app\images\products" />
-        <Folder Include="app\scripts" />
-        <Folder Include="app\scripts\classes" />
-        <Folder Include="app\scripts\controllers" />
-        <Folder Include="app\scripts\directives" />
-        <Folder Include="app\scripts\services" />
-        <Folder Include="app\styles" />
-        <Folder Include="app\views" />
-        <Folder Include="app\views\partials" />
-        <Folder Include="lib" />
-        <Folder Include="lib\config" />
-        <Folder Include="lib\config\env" />
-        <Folder Include="lib\controllers" />
-        <Folder Include="lib\models" />
-        <Folder Include="test" />
-        <Folder Include="test\spec\controllers" />
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
-    <ProjectExtensions>
-        <VisualStudio>
-          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-            <WebProjectProperties>
-              <UseIIS>False</UseIIS>
-              <AutoAssignPort>True</AutoAssignPort>
-              <DevelopmentServerPort>0</DevelopmentServerPort>
-              <DevelopmentServerVPath>/</DevelopmentServerVPath>
-              <IISUrl>http://localhost:48022/</IISUrl>
-              <NTLMAuthentication>False</NTLMAuthentication>
-              <UseCustomServer>True</UseCustomServer>
-              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
-              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-            </WebProjectProperties>
-          </FlavorProperties>
-          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
-            <WebProjectProperties>
-              <StartPageUrl>
-              </StartPageUrl>
-              <StartAction>CurrentPage</StartAction>
-              <AspNetDebugging>True</AspNetDebugging>
-              <SilverlightDebugging>False</SilverlightDebugging>
-              <NativeDebugging>False</NativeDebugging>
-              <SQLDebugging>False</SQLDebugging>
-              <ExternalProgram>
-              </ExternalProgram>
-              <StartExternalURL>
-              </StartExternalURL>
-              <StartCmdLineArguments>
-              </StartCmdLineArguments>
-              <StartWorkingDirectory>
-              </StartWorkingDirectory>
-              <EnableENC>False</EnableENC>
-              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
-            </WebProjectProperties>
-          </FlavorProperties>
-        </VisualStudio>
-    </ProjectExtensions>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{05515abd-c7e9-43b5-85fb-ac3087df74e9}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>server.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Compile Include="Gruntfile.js" />
+    <Compile Include="karma-e2e.conf.js" />
+    <Compile Include="karma.conf.js" />
+    <Compile Include="server.js" />
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="app\robots.txt" />
+    <Content Include="app\favicon.ico" />
+    <Compile Include="lib\middleware.js" />
+    <Compile Include="lib\routes.js" />
+    <Content Include="test\runner.html" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\images\profile-placeholder.png" />
+    <Content Include="app\images\yeoman.png" />
+    <Compile Include="app\scripts\app.js" />
+    <Content Include="app\styles\bootstrap.min.css" />
+    <Content Include="app\styles\main.css" />
+    <Content Include="app\views\404.html" />
+    <Content Include="app\views\index.html" />
+    <Content Include="app\images\products\APL.jpg" />
+    <Content Include="app\images\products\AVC.jpg" />
+    <Content Include="app\images\products\BAN.jpg" />
+    <Content Include="app\images\products\WML.jpg" />
+    <Compile Include="app\scripts\classes\product.js" />
+    <Compile Include="app\scripts\classes\shoppingCart.js" />
+    <Compile Include="app\scripts\classes\store.js" />
+    <Compile Include="app\scripts\controllers\login.js" />
+    <Compile Include="app\scripts\controllers\main.js" />
+    <Compile Include="app\scripts\controllers\navbar.js" />
+    <Compile Include="app\scripts\controllers\settings.js" />
+    <Compile Include="app\scripts\controllers\signup.js" />
+    <Compile Include="app\scripts\directives\mongooseError.js" />
+    <Compile Include="app\scripts\services\auth.js" />
+    <Compile Include="app\scripts\services\dataService.js" />
+    <Compile Include="app\scripts\services\session.js" />
+    <Compile Include="app\scripts\services\user.js" />
+    <Content Include="app\views\partials\login.html" />
+    <Content Include="app\views\partials\main.html" />
+    <Content Include="app\views\partials\navbar.html" />
+    <Content Include="app\views\partials\product.html" />
+    <Content Include="app\views\partials\settings.html" />
+    <Content Include="app\views\partials\shoppingCart.html" />
+    <Content Include="app\views\partials\signup.html" />
+    <Compile Include="lib\config\config.js" />
+    <Compile Include="lib\config\dummydata.js" />
+    <Compile Include="lib\config\express.js" />
+    <Compile Include="lib\config\passport.js" />
+    <Compile Include="lib\controllers\api.js" />
+    <Compile Include="lib\controllers\index.js" />
+    <Compile Include="lib\controllers\session.js" />
+    <Compile Include="lib\controllers\users.js" />
+    <Compile Include="lib\models\thing.js" />
+    <Compile Include="lib\models\user.js" />
+    <Compile Include="lib\config\env\all.js" />
+    <Compile Include="lib\config\env\development.js" />
+    <Compile Include="lib\config\env\production.js" />
+    <Compile Include="lib\config\env\test.js" />
+    <Compile Include="test\spec\controllers\main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git" />
+    <Folder Include="app" />
+    <Folder Include="app\fonts" />
+    <Folder Include="app\images" />
+    <Folder Include="app\images\products" />
+    <Folder Include="app\scripts" />
+    <Folder Include="app\scripts\classes" />
+    <Folder Include="app\scripts\controllers" />
+    <Folder Include="app\scripts\directives" />
+    <Folder Include="app\scripts\services" />
+    <Folder Include="app\styles" />
+    <Folder Include="app\views" />
+    <Folder Include="app\views\partials" />
+    <Folder Include="lib" />
+    <Folder Include="lib\config" />
+    <Folder Include="lib\config\env" />
+    <Folder Include="lib\controllers" />
+    <Folder Include="lib\models" />
+    <Folder Include="test" />
+    <Folder Include="test\spec\" />
+    <Folder Include="test\spec\controllers" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
