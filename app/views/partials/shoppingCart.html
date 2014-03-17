@@ -8,51 +8,121 @@
 	</p>
 	<br />
 	<div class="row">
-		<div class="col-sm-8">
-			<table class="table table-bordered">
+	    <div class="col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-hide="cart.getTotalCount() > 0">
+                        <td class="tdCenter" colspan="4">Your cart is empty. </td>
+                    </tr>
+                    <tr ng-repeat="item in cart.items | orderBy:'name'">
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object" ng-src="/images/products/{{item.id}}.jpg" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">{{item.name}}</a></h4>
+                                    <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                            <input type="tel" class="form-control" id="exampleInputEmail1" value="3" ng-model="item.quantity" ng-change="cart.saveItems()">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.price | currency:"£"}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{item.price * item.quantity | currency:"£"}}</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger" ng-click="cart.addItem(item.id, item.name, item.price, -10000000)">
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Subtotal</h5></td>
+                        <td class="text-right"><h5><strong>{{cart.getTotalPrice() | currency:"£"}}</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Estimated shipping</h5></td>
+                        <td class="text-right"><h5><strong>£0.00</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>{{cart.getTotalPrice() | currency:"£"}}</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <a class="btn btn-default" href="/" role="button">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                            </a>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" ng-click="cart.checkout('Stripe', currentUser)" ng-disabled="cart.getTotalCount() < 1">
+                                Checkout <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
 
-			<!-- header -->
-			<tr class="well">
-			  <td><b>Item</b></td>
-			  <td class="tdCenter"><b>Quantity</b></td>
-			  <td class="tdRight"><b>Price</b></td>
-			  <td />
-			</tr>
+	        <!--<table class="table table-bordered">
 
-			<!-- empty cart message -->
-			<tr ng-hide="cart.getTotalCount() > 0" >
-			  <td class="tdCenter" colspan="4">Your cart is empty. </td>
-			</tr>
+	            <tr class="well">
+	                <td><b>Item</b></td>
+	                <td class="tdCenter"><b>Quantity</b></td>
+	                <td class="tdRight"><b>Price</b></td>
+	                <td />
+	            </tr>
 
-			<!-- cart items -->
-			<tr ng-repeat="item in cart.items | orderBy:'name'">
-			  <td>{{item.name}}</td>
-			  <td class="tdCenter">
-			    <div class="form-inline">
-			      <!-- use type=tel instead of number to prevent spinners -->
-			      <input class="form-control input-sm" style="width: 200px;" type="tel" ng-model="item.quantity" ng-change="cart.saveItems()" />
-			      <button class="btn btn-sm btn-success" type="button" ng-disabled="item.quantity >= 1000" ng-click="cart.addItem(item.id, item.name, item.price, +1)">+</button>
-			      <button class="btn btn-sm btn-inverse" type="button" ng-disabled="item.quantity <= 1" ng-click="cart.addItem(item.id, item.name, item.price, -1)">-</button>
-			    </div>
-			  </td>
-			  <td class="tdRight">{{item.price * item.quantity | currency:"£"}}</td>
-			  <td class="tdCenter" title="remove from cart">
-			    <a href="" ng-click="cart.addItem(item.id, item.name, item.price, -10000000)" >
-			      	<i class="glyphicon glyphicon-remove" />
-			    </a>
-			  </td>
-			</tr>
+	            <tr ng-hide="cart.getTotalCount() > 0" >
+	                <td class="tdCenter" colspan="4">Your cart is empty. </td>
+	            </tr>
 
-			<!-- footer -->
-			<tr class="well">
-			  <td><b>Total</b></td>
-			  <td class="tdCenter"><b>{{cart.getTotalCount()}}</b></td>
-			  <td class="tdRight"><b>{{cart.getTotalPrice() | currency:"£"}}</b></td>
-			  <td />
-			</tr>
-			</table>
-		</div>
-		<div class="col-sm-4" >
+	            <tr ng-repeat="item in cart.items | orderBy:'name'">
+	                <td>{{item.name}}</td>
+	                <td class="tdCenter">
+	                    <div class="form-inline">
+	                        <input class="form-control input-sm" style="width: 200px;" type="tel" ng-model="item.quantity" ng-change="cart.saveItems()" />
+	                        <button class="btn btn-sm btn-success" type="button" ng-disabled="item.quantity >= 1000" ng-click="cart.addItem(item.id, item.name, item.price, +1)">+</button>
+	                        <button class="btn btn-sm btn-inverse" type="button" ng-disabled="item.quantity <= 1" ng-click="cart.addItem(item.id, item.name, item.price, -1)">-</button>
+	                    </div>
+	                </td>
+	                <td class="tdRight">{{item.price * item.quantity | currency:"£"}}</td>
+	                <td class="tdCenter" title="remove from cart">
+	                    <a href="" ng-click="cart.addItem(item.id, item.name, item.price, -10000000)" >
+	                        <i class="glyphicon glyphicon-remove" />
+	                    </a>
+	                </td>
+	            </tr>
+
+	            <tr class="well">
+	                <td><b>Total</b></td>
+	                <td class="tdCenter"><b>{{cart.getTotalCount()}}</b></td>
+	                <td class="tdRight"><b>{{cart.getTotalPrice() | currency:"£"}}</b></td>
+	                <td />
+	            </tr>
+	        </table>-->
+	    </div>
+		<!--<div class="col-sm-4" >
 			<div data-spy="affix" data-offset-top="60">
 				<p class="text-info">
 				    <a class="btn btn-block btn-default" href="/" role="button" >
@@ -69,6 +139,6 @@
 				  </button>
 				</p>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </div>
