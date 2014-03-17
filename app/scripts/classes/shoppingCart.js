@@ -68,8 +68,8 @@ shoppingCart.prototype.addItem = function (id, name, price, quantity) {
 
         // new item, add now
         if (!found) {
-            var item = new cartItem(id, name, price, quantity);
-            this.items.push(item);
+            var newItem = new cartItem(id, name, price, quantity);
+            this.items.push(newItem);
         }
 
         // save changes
