@@ -36,8 +36,8 @@
                           {{ product.description }}
                         </p>
                         <span><b>Price: </b>{{ product.price | currency:"£" }}</span>
-                        <a href="" class="btn btn-sm btn-primary pull-right"  ng-click="cart.addItem(product.id, product.name, product.price, 1)">
-                           add to cart
+                        <a href="" class="btn btn-sm btn-primary pull-right" ng-click="cart.addItem(product.id, product.name, product.price, 1); giveProductAlert();">
+                            add to cart
                         </a>
                         <a href="/products/{{ product.id }}" class="btn btn-sm btn-info pull-right" style="margin-right: 5px;" >
                            more info

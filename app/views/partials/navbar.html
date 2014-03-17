@@ -18,7 +18,7 @@
 		    </li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" style="padding-right:10px;">
-			<li ng-class="{active: isActive('/cart')}"><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> {{ cart.getTotalCount() }} Basket</a></li>
+			<li ng-class="{active: isActive('/cart')}"><a id="basket" href="/cart" data-toggle="popover"><span class="glyphicon glyphicon-shopping-cart"></span> {{ cart.getTotalCount() }} Basket</a></li>
 			<li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
 		    <li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
 		    <li ng-class="{active: isActive('/logout')}"></li>

@@ -18,7 +18,7 @@
                     <div>{{ product.description }}</div>
                 </div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-success btn-block" ng-click="cart.addItem(product.id, product.name, product.price, 1)">Add to cart</button>
+                    <button type="button" class="btn btn-success btn-block" ng-click="cart.addItem(product.id, product.name, product.price, 1); giveProductAlert();">Add to cart</button>
                 </div>
             </div> 
         </div>

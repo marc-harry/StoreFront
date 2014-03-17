@@ -134,3 +134,7 @@ body {
 .img-responsive:hover {
     border-color: #18bc9c;
 }
+
+.popover {
+    width: 180px;
+}
