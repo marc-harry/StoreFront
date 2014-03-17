@@ -119,3 +119,18 @@ body {
   height: 0px;
   padding: 0px;
 }
+
+.img-responsive {
+    border: solid 4px transparent;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -ms-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+.img-responsive:hover {
+    border-color: #18bc9c;
+}
